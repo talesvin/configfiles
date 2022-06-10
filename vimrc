@@ -17,4 +17,5 @@ set termguicolors
 
 let g:tokyonight_style = 'night'
 
+" font : source code pro
 colorscheme tokyonight
