@@ -7,7 +7,7 @@ set shiftwidth=4
 set expandtab
 set ai
 set number
-set hlsearch
+set nohlsearch
 set incsearch
 set ruler
 set belloff=all
@@ -18,7 +18,7 @@ set signcolumn=yes
 
 call plug#begin()
 
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'sheerun/vim-polyglot'
 
 " LSP stuff
@@ -34,13 +34,21 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
+set background=dark
 set termguicolors
+colorscheme gruvbox-material
 " font:source code pro
-let g:tokyonight_style = 'night'
-
-colorscheme tokyonight
 
 " More LSP stuff
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" Auto closing stuff
+" inoremap { {}<Esc>ha
+
+" Old Theme
+" tokyonight from ghifarit is not being updated anymore
+" Plug 'ghifarit53/tokyonight-vim'
+" let g:tokyonight_style = 'night'
+" colorscheme tokyonight
