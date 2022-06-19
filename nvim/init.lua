@@ -32,20 +32,29 @@ require('packer').startup(function()
     -- theme
     use {'sainnhe/gruvbox-material'}
     
-    -- telescope stuff
-    use 'nvim-lua/popup.nviec'
-    use 'nvim-lua/plenary.nvim'
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
     -- LuaLine
     use 'kyazdani42/nvim-web-devicons'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    
+    -- telescope stuff
+    --[[ 
+    use 'nvim-lua/popup.nviec'
+    use 'nvim-lua/plenary.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    --]] 
+
+    -- fzf <3 lua
+    use {
+        'ibhagwan/fzf-lua',
+        requires = { 'kyazdani42/nvim-web-devicons' }
+    }
+
 end)
 
 -- Theme config
@@ -59,7 +68,8 @@ vim.cmd[[colorscheme gruvbox-material]]
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
 keymap('i', '{', '{}<Esc>i', {})
-keymap('n', '<C-f>', '<cmd>Telescope find_files<cr>', opts)
+keymap('n', '<C-f>',"<cmd>FzfLua files<CR>", { noremap = true, silent = true })
+--keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', opts)
 
 -- LSP Stuff
 local lsp = require "lspconfig"
@@ -78,7 +88,7 @@ require'nvim-treesitter.configs'.setup {
 -- LuaLine
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
