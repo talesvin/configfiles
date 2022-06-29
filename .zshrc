@@ -39,7 +39,7 @@ ZSH_THEME="fwalch"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -99,6 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Created by `userpath` on 2022-05-24 14:01:38
+alias vi="nvim"
+alias vim="nvim"
 export PATH="$PATH:/home/flaw/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export TERM=xterm-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

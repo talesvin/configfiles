@@ -1,9 +1,7 @@
--- set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 vim.opt.ai = true
-vim.opt.smarttab = true
 vim.opt.expandtab = true
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 0
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4 
 vim.opt.number = true
 vim.opt.hlsearch = false
@@ -70,9 +68,19 @@ vim.cmd[[colorscheme gruvbox-material]]
 
 -- keymaps
 local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true }
+local opts = { noremap = true, silent = true}
+-- jklç - left, down, up, right
+keymap('n', 'j', 'h', opts)
+keymap('n', 'k', 'j', opts)
+keymap('n', 'l', 'k', opts)
+keymap('n', 'ç', 'l', opts)
+-- open 2 brackets when creating 1 bracket
 keymap('i', '{', '{}<Esc>i', {})
-keymap('n', '<C-f>',"<cmd>FzfLua files<CR>", { noremap = true, silent = true })
+-- open fzf
+keymap('n', '<C-f>',"<cmd>FzfLua files<CR>", opts)
+-- format text
+keymap('n', '<C-p>','gg=G<CR>', opts)
+-- not using rn
 --keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', opts)
 
 -- LSP Stuff
