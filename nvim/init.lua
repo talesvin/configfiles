@@ -4,6 +4,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ruler = true
@@ -69,11 +70,6 @@ vim.cmd[[colorscheme gruvbox-material]]
 -- keymaps
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true}
--- jklç - left, down, up, right
-keymap('n', 'j', 'h', opts)
-keymap('n', 'k', 'j', opts)
-keymap('n', 'l', 'k', opts)
-keymap('n', 'ç', 'l', opts)
 -- open 2 brackets when creating 1 bracket
 keymap('i', '{', '{}<Esc>i', {})
 -- open fzf
